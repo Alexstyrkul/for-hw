@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "name": "Space A",
+    "lists": [
+      { "id": "list_001", "name": "To do" },
+      { "id": "list_002", "name": "In progress" }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Space B",
+    "lists": [
+      { "id": "list_003", "name": "Done" }
+    ]
+  }
+]
