@@ -272,60 +272,6 @@
 							"response": []
 						},
 						{
-							"name": "Get Lists",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"pm.test(\"List retrieved successfully\", function () {",
-											"    pm.response.to.have.status(200);",
-											"    const json = pm.response.json();",
-											"    pm.expect(json).to.have.property(\"name\");",
-											"});"
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": [
-										{
-											"key": "value",
-											"value": "pk_188621341_IZ17NHX9A5CVFV7CRXOWJGGC8WP8EE3F",
-											"type": "string"
-										},
-										{
-											"key": "key",
-											"value": "Authorization",
-											"type": "string"
-										},
-										{
-											"key": "in",
-											"value": "header",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{base_url}}/list/{{list_id}}",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"list",
-										"{{list_id}}"
-									]
-								}
-							},
-							"response": []
-						},
-						{
 							"name": "Update List",
 							"event": [
 								{
@@ -383,6 +329,60 @@
 										}
 									}
 								},
+								"url": {
+									"raw": "{{base_url}}/list/{{list_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"list",
+										"{{list_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Lists",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"List retrieved successfully\", function () {",
+											"    pm.response.to.have.status(200);",
+											"    const json = pm.response.json();",
+											"    pm.expect(json).to.have.property(\"name\");",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "pk_188621341_IZ17NHX9A5CVFV7CRXOWJGGC8WP8EE3F",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
 								"url": {
 									"raw": "{{base_url}}/list/{{list_id}}",
 									"host": [
