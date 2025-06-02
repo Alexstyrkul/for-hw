@@ -15,8 +15,7 @@ jobs:
           command: npm ci
       - run:
           name: Run Cypress tests
-          command: npx cypress run --e2e --spec "cypress/e2e/task_lifecycle.cy.ts"
-        
+          command: npx cypress run --e2e
     environment:
       CLICKUP_TOKEN: pk_200540127_JVDGGDGR64FUSZZJDAI0UV1C2WJ9GETA
       LIST_ID: 901511749764
