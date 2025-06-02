@@ -8,19 +8,21 @@ executors:
 jobs:
   test-cypress:
     executor: node-executor
+    working_directory: ~/project
+    environment:
+      CLICKUP_TOKEN: pk_200540127_JVDGGDGR64FUSZZJDAI0UV1C2WJ9GETA
+      LIST_ID: 901511749764
+      WORKSPACE_ID: 90151244709
+      GOAL_FOLDER_ID: 90157352427
     steps:
-      - checkout
+      - checkout:
+          path: ~/project
       - run:
           name: Install dependencies
           command: npm ci
       - run:
           name: Run Cypress tests
           command: npx cypress run --e2e
-    environment:
-      CLICKUP_TOKEN: pk_200540127_JVDGGDGR64FUSZZJDAI0UV1C2WJ9GETA
-      LIST_ID: 901511749764
-      WORKSPACE_ID: 90151244709
-      GOAL_FOLDER_ID: 90157352427
 
 workflows:
   version: 2
