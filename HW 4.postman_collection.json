@@ -528,6 +528,77 @@
 							"response": []
 						},
 						{
+							"name": "Update List 1",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"List updated successfully\", () => {",
+											"  pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "pk_188621341_IZ17NHX9A5CVFV7CRXOWJGGC8WP8EE3F",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"Updated Test List {{timestamp}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/list/{{list_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"list",
+										"{{list_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "Get Updated List",
 							"event": [
 								{
@@ -836,7 +907,7 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"pm.test(\"Should return 401 without token\", function () {",
+													"pm.test(\"Should return 400 without token\", function () {",
 													"    pm.response.to.have.status(401);",
 													"});"
 												],
