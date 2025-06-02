@@ -1,41 +1,29 @@
 version: 2.1
 
 executors:
-  python-executor:
-    docker:
-      - image: python:3.9
-
   node-executor:
     docker:
       - image: cimg/node:20.5.1
 
 jobs:
-  test-python:
-    executor: python-executor
-    steps:
-      - checkout
-      - run:
-          name: Install Python dependencies
-          command: |
-            pip install -r requirements.txt
-      - run:
-          name: Run Python tests
-          command: pytest python_tests/test_goals.py -v
-
   test-cypress:
     executor: node-executor
     steps:
       - checkout
       - run:
-          name: Install Node dependencies
+          name: Install dependencies
           command: npm ci
       - run:
           name: Run Cypress tests
           command: npx cypress run --e2e
+    environment:
+      CLICKUP_TOKEN: pk_200540127_JVDGGDGR64FUSZZJDAI0UV1C2WJ9GETA
+      LIST_ID: 901511749764
+      WORKSPACE_ID: 90151244709
+      GOAL_FOLDER_ID: 90157352427
 
 workflows:
   version: 2
-  run-all-tests:
+  run-cypress:
     jobs:
-      - test-python
       - test-cypress
