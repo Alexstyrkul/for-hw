@@ -5,22 +5,37 @@ executors:
     docker:
       - image: python:3.9
 
+  node-executor:
+    docker:
+      - image: cimg/node:20.5.1
+
 jobs:
   test-python:
     executor: python-executor
     steps:
       - checkout
       - run:
-          name: Install dependencies
+          name: Install Python dependencies
           command: |
-            python -m pip install --upgrade pip
             pip install -r requirements.txt
       - run:
-          name: Run pytest
+          name: Run Python tests
           command: pytest python_tests/test_goals.py -v
+
+  test-cypress:
+    executor: node-executor
+    steps:
+      - checkout
+      - run:
+          name: Install Node dependencies
+          command: npm ci
+      - run:
+          name: Run Cypress tests
+          command: npx cypress run --e2e
 
 workflows:
   version: 2
-  run-tests:
+  run-all-tests:
     jobs:
       - test-python
+      - test-cypress
