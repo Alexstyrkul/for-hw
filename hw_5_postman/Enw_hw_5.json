@@ -43,9 +43,15 @@
 			"value": "",
 			"type": "any",
 			"enabled": true
+		},
+		{
+			"key": "list_id",
+			"value": "901511746785",
+			"type": "default",
+			"enabled": true
 		}
 	],
 	"_postman_variable_scope": "environment",
-	"_postman_exported_at": "2025-06-02T14:13:12.547Z",
+	"_postman_exported_at": "2025-06-02T14:26:18.877Z",
 	"_postman_exported_using": "Postman/11.46.5"
 }
