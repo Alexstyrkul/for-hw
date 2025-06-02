@@ -1,13 +1,10 @@
+# .circleci/config.yml
 version: 2.1
 
 executors:
   python-executor:
     docker:
       - image: python:3.9
-
-  node-executor:
-    docker:
-      - image: cimg/node:20.5.1
 
 jobs:
   test-python:
@@ -27,15 +24,19 @@ jobs:
             pytest
 
   test-cypress:
-    executor: node-executor
+    # Меняем executor: вместо node-executor указываем напрямую cypress/included:14.4.0
+    docker:
+      - image: cypress/included:14.4.0
     working_directory: ~/repo/clickup-goal-api-tests
     steps:
       - checkout
+
       - run:
-          name: Install Cypress dependencies
+          name: Install project dependencies
           command: |
             cd clickup-goal-api-tests
             npm ci
+
       - run:
           name: Run Cypress tests
           command: |
