@@ -25,13 +25,12 @@ jobs:
 
   test-cypress:
     executor: node-executor
-    working_directory: ~/repo
+    working_directory: ~/repo/clickup-goal-api-tests
     steps:
       - checkout
       - run:
           name: Install Cypress dependencies
-          command: |
-            npm ci
+          command: npm ci
       - run:
           name: Run Cypress tests
           command: npx cypress run
@@ -39,7 +38,7 @@ jobs:
   test-postman:
     docker:
       - image: postman/newman:alpine
-    working_directory: ~/repo
+    working_directory: ~/repo/clickup-goal-api-tests
     steps:
       - checkout
       - run:
