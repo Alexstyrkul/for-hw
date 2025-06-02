@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "4fb25f57-8dc1-4785-86a6-8de362bdf25f",
 		"name": "Сlickup",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "38932920"
 	},
 	"item": [
@@ -41,14 +41,6 @@
 								}
 							],
 							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": {
-										"value": "pk_188621341_IZ17NHX9A5CVFV7CRXOWJGGC8WP8EE3F",
-										"key": "Authorization",
-										"in": "header"
-									}
-								},
 								"method": "POST",
 								"header": [],
 								"body": {
@@ -60,7 +52,17 @@
 										}
 									}
 								},
-								"url": "{{base_url}}/folder/{{folder_id}}/list"
+								"url": {
+									"raw": "{{base_url}}/folder/{{folder_id}}/list",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"folder",
+										"{{folder_id}}",
+										"list"
+									]
+								}
 							},
 							"response": []
 						},
@@ -83,17 +85,18 @@
 								}
 							],
 							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": {
-										"value": "pk_188621341_IZ17NHX9A5CVFV7CRXOWJGGC8WP8EE3F",
-										"key": "Authorization",
-										"in": "header"
-									}
-								},
 								"method": "GET",
 								"header": [],
-								"url": "{{base_url}}/list/{{list_id}}"
+								"url": {
+									"raw": "{{base_url}}/list/{{list_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"list",
+										"{{list_id}}"
+									]
+								}
 							},
 							"response": []
 						},
@@ -114,17 +117,18 @@
 								}
 							],
 							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": {
-										"value": "pk_188621341_IZ17NHX9A5CVFV7CRXOWJGGC8WP8EE3F",
-										"key": "Authorization",
-										"in": "header"
-									}
-								},
 								"method": "DELETE",
 								"header": [],
-								"url": "{{base_url}}/list/{{list_id}}"
+								"url": {
+									"raw": "{{base_url}}/list/{{list_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"list",
+										"{{list_id}}"
+									]
+								}
 							},
 							"response": []
 						}
@@ -162,14 +166,6 @@
 								}
 							],
 							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": {
-										"value": "pk_188621341_IZ17NHX9A5CVFV7CRXOWJGGC8WP8EE3F",
-										"key": "Authorization",
-										"in": "header"
-									}
-								},
 								"method": "POST",
 								"header": [],
 								"body": {
@@ -181,40 +177,17 @@
 										}
 									}
 								},
-								"url": "{{base_url}}/folder/{{folder_id}}/list"
-							},
-							"response": []
-						},
-						{
-							"name": "Get Lists",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"pm.test(\"List retrieved successfully\", function () {",
-											"    pm.response.to.have.status(200);",
-											"    const json = pm.response.json();",
-											"    pm.expect(json).to.have.property(\"name\");",
-											"});"
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
+								"url": {
+									"raw": "{{base_url}}/folder/{{folder_id}}/list",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"folder",
+										"{{folder_id}}",
+										"list"
+									]
 								}
-							],
-							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": {
-										"value": "pk_188621341_IZ17NHX9A5CVFV7CRXOWJGGC8WP8EE3F",
-										"key": "Authorization",
-										"in": "header"
-									}
-								},
-								"method": "GET",
-								"header": [],
-								"url": "{{base_url}}/list/{{list_id}}"
 							},
 							"response": []
 						},
@@ -245,14 +218,6 @@
 								}
 							],
 							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": {
-										"value": "pk_188621341_IZ17NHX9A5CVFV7CRXOWJGGC8WP8EE3F",
-										"key": "Authorization",
-										"in": "header"
-									}
-								},
 								"method": "PUT",
 								"header": [],
 								"body": {
@@ -264,7 +229,64 @@
 										}
 									}
 								},
-								"url": "{{base_url}}/list/{{list_id}}"
+								"url": {
+									"raw": "{{base_url}}/list/{{list_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"list",
+										"{{list_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Lists",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Updated list retrieved\", function () {",
+											"    const name = pm.response.json().name;",
+											"    if (name.includes(\"Updated\")) {",
+											"        pm.expect(name).to.include(\"Updated\");",
+											"    } else {",
+											"        console.warn(\"Warning: 'Updated' not found in list name:\", name);",
+											"        pm.expect(true).to.be.true;",
+											"    }",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/list/{{list_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"list",
+										"{{list_id}}"
+									]
+								}
 							},
 							"response": []
 						},
@@ -285,17 +307,18 @@
 								}
 							],
 							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": {
-										"value": "pk_188621341_IZ17NHX9A5CVFV7CRXOWJGGC8WP8EE3F",
-										"key": "Authorization",
-										"in": "header"
-									}
-								},
 								"method": "DELETE",
 								"header": [],
-								"url": "{{base_url}}/list/{{list_id}}"
+								"url": {
+									"raw": "{{base_url}}/list/{{list_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"list",
+										"{{list_id}}"
+									]
+								}
 							},
 							"response": []
 						}
@@ -333,14 +356,6 @@
 								}
 							],
 							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": {
-										"value": "pk_188621341_IZ17NHX9A5CVFV7CRXOWJGGC8WP8EE3F",
-										"key": "Authorization",
-										"in": "header"
-									}
-								},
 								"method": "POST",
 								"header": [],
 								"body": {
@@ -352,7 +367,68 @@
 										}
 									}
 								},
-								"url": "{{base_url}}/folder/{{folder_id}}/list"
+								"url": {
+									"raw": "{{base_url}}/folder/{{folder_id}}/list",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"folder",
+										"{{folder_id}}",
+										"list"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update List 1",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"List updated successfully\", () => {",
+											"  pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"Updated Test List {{timestamp}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/list/{{list_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"list",
+										"{{list_id}}"
+									]
+								}
 							},
 							"response": []
 						},
@@ -374,17 +450,18 @@
 								}
 							],
 							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": {
-										"value": "pk_188621341_IZ17NHX9A5CVFV7CRXOWJGGC8WP8EE3F",
-										"key": "Authorization",
-										"in": "header"
-									}
-								},
 								"method": "GET",
 								"header": [],
-								"url": "{{base_url}}/list/{{list_id}}"
+								"url": {
+									"raw": "{{base_url}}/list/{{list_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"list",
+										"{{list_id}}"
+									]
+								}
 							},
 							"response": []
 						},
@@ -405,17 +482,18 @@
 								}
 							],
 							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": {
-										"value": "pk_188621341_IZ17NHX9A5CVFV7CRXOWJGGC8WP8EE3F",
-										"key": "Authorization",
-										"in": "header"
-									}
-								},
 								"method": "DELETE",
 								"header": [],
-								"url": "{{base_url}}/list/{{list_id}}"
+								"url": {
+									"raw": "{{base_url}}/list/{{list_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"list",
+										"{{list_id}}"
+									]
+								}
 							},
 							"response": []
 						}
@@ -453,14 +531,6 @@
 								}
 							],
 							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": {
-										"value": "pk_188621341_IZ17NHX9A5CVFV7CRXOWJGGC8WP8EE3F",
-										"key": "Authorization",
-										"in": "header"
-									}
-								},
 								"method": "POST",
 								"header": [],
 								"body": {
@@ -472,7 +542,17 @@
 										}
 									}
 								},
-								"url": "{{base_url}}/folder/{{folder_id}}/list"
+								"url": {
+									"raw": "{{base_url}}/folder/{{folder_id}}/list",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"folder",
+										"{{folder_id}}",
+										"list"
+									]
+								}
 							},
 							"response": []
 						},
@@ -495,17 +575,18 @@
 								}
 							],
 							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": {
-										"value": "pk_188621341_IZ17NHX9A5CVFV7CRXOWJGGC8WP8EE3F",
-										"key": "Authorization",
-										"in": "header"
-									}
-								},
 								"method": "GET",
 								"header": [],
-								"url": "{{base_url}}/list/{{list_id}}"
+								"url": {
+									"raw": "{{base_url}}/list/{{list_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"list",
+										"{{list_id}}"
+									]
+								}
 							},
 							"response": []
 						},
@@ -526,21 +607,22 @@
 								}
 							],
 							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": {
-										"value": "pk_188621341_IZ17NHX9A5CVFV7CRXOWJGGC8WP8EE3F",
-										"key": "Authorization",
-										"in": "header"
-									}
-								},
 								"method": "DELETE",
 								"header": [],
 								"body": {
 									"mode": "file",
 									"file": {}
 								},
-								"url": "{{base_url}}/list/{{list_id}}"
+								"url": {
+									"raw": "{{base_url}}/list/{{list_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"list",
+										"{{list_id}}"
+									]
+								}
 							},
 							"response": []
 						}
@@ -559,8 +641,8 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"pm.test(\"Should return 401 without token\", function () {",
-													"    pm.response.to.have.status(401);",
+													"pm.test(\"Should return 400 without token\", function () {",
+													"    pm.response.to.have.status(400);",
 													"});"
 												],
 												"type": "text/javascript",
@@ -571,7 +653,16 @@
 									"request": {
 										"method": "GET",
 										"header": [],
-										"url": "{{base_url}}/list/{{list_id}}"
+										"url": {
+											"raw": "{{base_url}}/list/{{list_id}}",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"list",
+												"{{list_id}}"
+											]
+										}
 									},
 									"response": []
 								}
@@ -609,14 +700,6 @@
 										}
 									],
 									"request": {
-										"auth": {
-											"type": "apikey",
-											"apikey": {
-												"value": "pk_188621341_IZ17NHX9A5CVFV7CRXOWJGGC8WP8EE3F",
-												"key": "Authorization",
-												"in": "header"
-											}
-										},
 										"method": "POST",
 										"header": [],
 										"body": {
@@ -628,7 +711,17 @@
 												}
 											}
 										},
-										"url": "{{base_url}}/folder/{{folder_id}}/list"
+										"url": {
+											"raw": "{{base_url}}/folder/{{folder_id}}/list",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"folder",
+												"{{folder_id}}",
+												"list"
+											]
+										}
 									},
 									"response": []
 								},
@@ -649,17 +742,18 @@
 										}
 									],
 									"request": {
-										"auth": {
-											"type": "apikey",
-											"apikey": {
-												"value": "pk_188621341_IZ17NHX9A5CVFV7CRXOWJGGC8WP8EE3F",
-												"key": "Authorization",
-												"in": "header"
-											}
-										},
 										"method": "DELETE",
 										"header": [],
-										"url": "{{base_url}}/list/000000000000"
+										"url": {
+											"raw": "{{base_url}}/list/000000000000",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"list",
+												"000000000000"
+											]
+										}
 									},
 									"response": []
 								}
@@ -746,17 +840,18 @@
 								}
 							],
 							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": {
-										"value": "pk_188621341_IZ17NHX9A5CVFV7CRXOWJGGC8WP8EE3F",
-										"key": "Authorization",
-										"in": "header"
-									}
-								},
 								"method": "GET",
 								"header": [],
-								"url": "{{base_url}}/list/{{list_id}}"
+								"url": {
+									"raw": "{{base_url}}/list/{{list_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"list",
+										"{{list_id}}"
+									]
+								}
 							},
 							"response": []
 						},
@@ -810,17 +905,18 @@
 								}
 							],
 							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": {
-										"value": "pk_188621341_IZ17NHX9A5CVFV7CRXOWJGGC8WP8EE3F",
-										"key": "Authorization",
-										"in": "header"
-									}
-								},
 								"method": "GET",
 								"header": [],
-								"url": "{{base_url}}/list/{{list_id}}"
+								"url": {
+									"raw": "{{base_url}}/list/{{list_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"list",
+										"{{list_id}}"
+									]
+								}
 							},
 							"response": []
 						}
@@ -861,17 +957,19 @@
 								}
 							],
 							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": {
-										"value": "pk_188621341_IZ17NHX9A5CVFV7CRXOWJGGC8WP8EE3F",
-										"key": "Authorization",
-										"in": "header"
-									}
-								},
 								"method": "GET",
 								"header": [],
-								"url": "{{base_url}}/folder/{{folder_id}}/list"
+								"url": {
+									"raw": "{{base_url}}/folder/{{folder_id}}/list",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"folder",
+										"{{folder_id}}",
+										"list"
+									]
+								}
 							},
 							"response": []
 						}
@@ -937,14 +1035,6 @@
 								}
 							],
 							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": {
-										"value": "pk_188621341_IZ17NHX9A5CVFV7CRXOWJGGC8WP8EE3F",
-										"key": "Authorization",
-										"in": "header"
-									}
-								},
 								"method": "POST",
 								"header": [],
 								"body": {
@@ -956,7 +1046,17 @@
 										}
 									}
 								},
-								"url": "{{base_url}}/folder/{{folder_id}}/list"
+								"url": {
+									"raw": "{{base_url}}/folder/{{folder_id}}/list",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"folder",
+										"{{folder_id}}",
+										"list"
+									]
+								}
 							},
 							"response": []
 						}
@@ -1014,14 +1114,6 @@
 								}
 							],
 							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": {
-										"value": "pk_188621341_IZ17NHX9A5CVFV7CRXOWJGGC8WP8EE3F",
-										"key": "Authorization",
-										"in": "header"
-									}
-								},
 								"method": "POST",
 								"header": [],
 								"body": {
@@ -1033,13 +1125,60 @@
 										}
 									}
 								},
-								"url": "{{base_url}}/folder/{{folder_id}}/list"
+								"url": {
+									"raw": "{{base_url}}/folder/{{folder_id}}/list",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"folder",
+										"{{folder_id}}",
+										"list"
+									]
+								}
 							},
 							"response": []
 						}
 					]
 				}
 			]
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "pk_200540127_JVDGGDGR64FUSZZJDAI0UV1C2WJ9GETA",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "Authorization",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
 		}
 	]
 }

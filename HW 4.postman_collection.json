@@ -41,26 +41,6 @@
 								}
 							],
 							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": [
-										{
-											"key": "value",
-											"value": "pk_188621341_IZ17NHX9A5CVFV7CRXOWJGGC8WP8EE3F",
-											"type": "string"
-										},
-										{
-											"key": "key",
-											"value": "Authorization",
-											"type": "string"
-										},
-										{
-											"key": "in",
-											"value": "header",
-											"type": "string"
-										}
-									]
-								},
 								"method": "POST",
 								"header": [],
 								"body": {
@@ -105,26 +85,6 @@
 								}
 							],
 							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": [
-										{
-											"key": "value",
-											"value": "pk_188621341_IZ17NHX9A5CVFV7CRXOWJGGC8WP8EE3F",
-											"type": "string"
-										},
-										{
-											"key": "key",
-											"value": "Authorization",
-											"type": "string"
-										},
-										{
-											"key": "in",
-											"value": "header",
-											"type": "string"
-										}
-									]
-								},
 								"method": "GET",
 								"header": [],
 								"url": {
@@ -157,26 +117,6 @@
 								}
 							],
 							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": [
-										{
-											"key": "value",
-											"value": "pk_188621341_IZ17NHX9A5CVFV7CRXOWJGGC8WP8EE3F",
-											"type": "string"
-										},
-										{
-											"key": "key",
-											"value": "Authorization",
-											"type": "string"
-										},
-										{
-											"key": "in",
-											"value": "header",
-											"type": "string"
-										}
-									]
-								},
 								"method": "DELETE",
 								"header": [],
 								"url": {
@@ -226,26 +166,6 @@
 								}
 							],
 							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": [
-										{
-											"key": "value",
-											"value": "pk_188621341_IZ17NHX9A5CVFV7CRXOWJGGC8WP8EE3F",
-											"type": "string"
-										},
-										{
-											"key": "key",
-											"value": "Authorization",
-											"type": "string"
-										},
-										{
-											"key": "in",
-											"value": "header",
-											"type": "string"
-										}
-									]
-								},
 								"method": "POST",
 								"header": [],
 								"body": {
@@ -298,26 +218,6 @@
 								}
 							],
 							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": [
-										{
-											"key": "value",
-											"value": "pk_188621341_IZ17NHX9A5CVFV7CRXOWJGGC8WP8EE3F",
-											"type": "string"
-										},
-										{
-											"key": "key",
-											"value": "Authorization",
-											"type": "string"
-										},
-										{
-											"key": "in",
-											"value": "header",
-											"type": "string"
-										}
-									]
-								},
 								"method": "PUT",
 								"header": [],
 								"body": {
@@ -366,32 +266,15 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"packages": {},
-										"type": "text/javascript"
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
 							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": [
-										{
-											"key": "value",
-											"value": "pk_188621341_IZ17NHX9A5CVFV7CRXOWJGGC8WP8EE3F",
-											"type": "string"
-										},
-										{
-											"key": "key",
-											"value": "Authorization",
-											"type": "string"
-										},
-										{
-											"key": "in",
-											"value": "header",
-											"type": "string"
-										}
-									]
-								},
 								"method": "GET",
 								"header": [],
 								"url": {
@@ -424,26 +307,6 @@
 								}
 							],
 							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": [
-										{
-											"key": "value",
-											"value": "pk_188621341_IZ17NHX9A5CVFV7CRXOWJGGC8WP8EE3F",
-											"type": "string"
-										},
-										{
-											"key": "key",
-											"value": "Authorization",
-											"type": "string"
-										},
-										{
-											"key": "in",
-											"value": "header",
-											"type": "string"
-										}
-									]
-								},
 								"method": "DELETE",
 								"header": [],
 								"url": {
@@ -493,26 +356,6 @@
 								}
 							],
 							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": [
-										{
-											"key": "value",
-											"value": "pk_188621341_IZ17NHX9A5CVFV7CRXOWJGGC8WP8EE3F",
-											"type": "string"
-										},
-										{
-											"key": "key",
-											"value": "Authorization",
-											"type": "string"
-										},
-										{
-											"key": "in",
-											"value": "header",
-											"type": "string"
-										}
-									]
-								},
 								"method": "POST",
 								"header": [],
 								"body": {
@@ -565,26 +408,6 @@
 								}
 							],
 							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": [
-										{
-											"key": "value",
-											"value": "pk_188621341_IZ17NHX9A5CVFV7CRXOWJGGC8WP8EE3F",
-											"type": "string"
-										},
-										{
-											"key": "key",
-											"value": "Authorization",
-											"type": "string"
-										},
-										{
-											"key": "in",
-											"value": "header",
-											"type": "string"
-										}
-									]
-								},
 								"method": "PUT",
 								"header": [],
 								"body": {
@@ -627,26 +450,6 @@
 								}
 							],
 							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": [
-										{
-											"key": "value",
-											"value": "pk_188621341_IZ17NHX9A5CVFV7CRXOWJGGC8WP8EE3F",
-											"type": "string"
-										},
-										{
-											"key": "key",
-											"value": "Authorization",
-											"type": "string"
-										},
-										{
-											"key": "in",
-											"value": "header",
-											"type": "string"
-										}
-									]
-								},
 								"method": "GET",
 								"header": [],
 								"url": {
@@ -679,26 +482,6 @@
 								}
 							],
 							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": [
-										{
-											"key": "value",
-											"value": "pk_188621341_IZ17NHX9A5CVFV7CRXOWJGGC8WP8EE3F",
-											"type": "string"
-										},
-										{
-											"key": "key",
-											"value": "Authorization",
-											"type": "string"
-										},
-										{
-											"key": "in",
-											"value": "header",
-											"type": "string"
-										}
-									]
-								},
 								"method": "DELETE",
 								"header": [],
 								"url": {
@@ -748,26 +531,6 @@
 								}
 							],
 							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": [
-										{
-											"key": "value",
-											"value": "pk_188621341_IZ17NHX9A5CVFV7CRXOWJGGC8WP8EE3F",
-											"type": "string"
-										},
-										{
-											"key": "key",
-											"value": "Authorization",
-											"type": "string"
-										},
-										{
-											"key": "in",
-											"value": "header",
-											"type": "string"
-										}
-									]
-								},
 								"method": "POST",
 								"header": [],
 								"body": {
@@ -812,26 +575,6 @@
 								}
 							],
 							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": [
-										{
-											"key": "value",
-											"value": "pk_188621341_IZ17NHX9A5CVFV7CRXOWJGGC8WP8EE3F",
-											"type": "string"
-										},
-										{
-											"key": "key",
-											"value": "Authorization",
-											"type": "string"
-										},
-										{
-											"key": "in",
-											"value": "header",
-											"type": "string"
-										}
-									]
-								},
 								"method": "GET",
 								"header": [],
 								"url": {
@@ -864,26 +607,6 @@
 								}
 							],
 							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": [
-										{
-											"key": "value",
-											"value": "pk_188621341_IZ17NHX9A5CVFV7CRXOWJGGC8WP8EE3F",
-											"type": "string"
-										},
-										{
-											"key": "key",
-											"value": "Authorization",
-											"type": "string"
-										},
-										{
-											"key": "in",
-											"value": "header",
-											"type": "string"
-										}
-									]
-								},
 								"method": "DELETE",
 								"header": [],
 								"body": {
@@ -928,26 +651,6 @@
 										}
 									],
 									"request": {
-										"auth": {
-											"type": "apikey",
-											"apikey": [
-												{
-													"key": "value",
-													"value": "",
-													"type": "string"
-												},
-												{
-													"key": "key",
-													"value": "Authorization",
-													"type": "string"
-												},
-												{
-													"key": "in",
-													"value": "header",
-													"type": "string"
-												}
-											]
-										},
 										"method": "GET",
 										"header": [],
 										"url": {
@@ -997,26 +700,6 @@
 										}
 									],
 									"request": {
-										"auth": {
-											"type": "apikey",
-											"apikey": [
-												{
-													"key": "value",
-													"value": "pk_188621341_IZ17NHX9A5CVFV7CRXOWJGGC8WP8EE3F",
-													"type": "string"
-												},
-												{
-													"key": "key",
-													"value": "Authorization",
-													"type": "string"
-												},
-												{
-													"key": "in",
-													"value": "header",
-													"type": "string"
-												}
-											]
-										},
 										"method": "POST",
 										"header": [],
 										"body": {
@@ -1059,26 +742,6 @@
 										}
 									],
 									"request": {
-										"auth": {
-											"type": "apikey",
-											"apikey": [
-												{
-													"key": "value",
-													"value": "pk_188621341_IZ17NHX9A5CVFV7CRXOWJGGC8WP8EE3F",
-													"type": "string"
-												},
-												{
-													"key": "key",
-													"value": "Authorization",
-													"type": "string"
-												},
-												{
-													"key": "in",
-													"value": "header",
-													"type": "string"
-												}
-											]
-										},
 										"method": "DELETE",
 										"header": [],
 										"url": {
@@ -1177,26 +840,6 @@
 								}
 							],
 							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": [
-										{
-											"key": "value",
-											"value": "pk_188621341_IZ17NHX9A5CVFV7CRXOWJGGC8WP8EE3F",
-											"type": "string"
-										},
-										{
-											"key": "key",
-											"value": "Authorization",
-											"type": "string"
-										},
-										{
-											"key": "in",
-											"value": "header",
-											"type": "string"
-										}
-									]
-								},
 								"method": "GET",
 								"header": [],
 								"url": {
@@ -1262,26 +905,6 @@
 								}
 							],
 							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": [
-										{
-											"key": "value",
-											"value": "pk_188621341_IZ17NHX9A5CVFV7CRXOWJGGC8WP8EE3F",
-											"type": "string"
-										},
-										{
-											"key": "key",
-											"value": "Authorization",
-											"type": "string"
-										},
-										{
-											"key": "in",
-											"value": "header",
-											"type": "string"
-										}
-									]
-								},
 								"method": "GET",
 								"header": [],
 								"url": {
@@ -1334,26 +957,6 @@
 								}
 							],
 							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": [
-										{
-											"key": "value",
-											"value": "pk_188621341_IZ17NHX9A5CVFV7CRXOWJGGC8WP8EE3F",
-											"type": "string"
-										},
-										{
-											"key": "key",
-											"value": "Authorization",
-											"type": "string"
-										},
-										{
-											"key": "in",
-											"value": "header",
-											"type": "string"
-										}
-									]
-								},
 								"method": "GET",
 								"header": [],
 								"url": {
@@ -1432,26 +1035,6 @@
 								}
 							],
 							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": [
-										{
-											"key": "value",
-											"value": "pk_188621341_IZ17NHX9A5CVFV7CRXOWJGGC8WP8EE3F",
-											"type": "string"
-										},
-										{
-											"key": "key",
-											"value": "Authorization",
-											"type": "string"
-										},
-										{
-											"key": "in",
-											"value": "header",
-											"type": "string"
-										}
-									]
-								},
 								"method": "POST",
 								"header": [],
 								"body": {
@@ -1531,26 +1114,6 @@
 								}
 							],
 							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": [
-										{
-											"key": "value",
-											"value": "pk_188621341_IZ17NHX9A5CVFV7CRXOWJGGC8WP8EE3F",
-											"type": "string"
-										},
-										{
-											"key": "key",
-											"value": "Authorization",
-											"type": "string"
-										},
-										{
-											"key": "in",
-											"value": "header",
-											"type": "string"
-										}
-									]
-								},
 								"method": "POST",
 								"header": [],
 								"body": {
@@ -1579,6 +1142,43 @@
 					]
 				}
 			]
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "pk_200540127_JVDGGDGR64FUSZZJDAI0UV1C2WJ9GETA",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "Authorization",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
 		}
 	]
 }
