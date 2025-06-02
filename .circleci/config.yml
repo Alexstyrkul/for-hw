@@ -12,7 +12,7 @@ executors:
 jobs:
   test-python:
     executor: python-executor
-    working_directory: ~/repo/hw_9_python
+    working_directory: ~/repo/clickup-goal-api-tests-python
     steps:
       - checkout
       - run:
@@ -21,7 +21,8 @@ jobs:
             pip install -r requirements.txt
       - run:
           name: Run pytest
-          command: pytest
+          command: |
+            pytest
 
   test-cypress:
     executor: node-executor
@@ -30,15 +31,17 @@ jobs:
       - checkout
       - run:
           name: Install Cypress dependencies
-          command: npm ci
+          command: |
+            npm ci
       - run:
           name: Run Cypress tests
-          command: npx cypress run
+          command: |
+            npx cypress run
 
   test-postman:
     docker:
       - image: postman/newman:alpine
-    working_directory: ~/repo/clickup-goal-api-tests
+    working_directory: ~/repo
     steps:
       - checkout
       - run:
