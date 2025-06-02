@@ -9,8 +9,8 @@ export default defineConfig({
     specPattern: 'cypress/e2e/**/*.cy.{js,jsx,ts,tsx}',
     supportFile: false,
     env: {
-      clickUpToken: process.env.CLICKUP_TOKEN,
-      workspaceId: process.env.WORKSPACE_ID,
+      clickUpToken: process.env.TOKEN,
+      workspaceId: process.env.TEAM_ID,
       goalFolderId: process.env.GOAL_FOLDER_ID
     }
   }
