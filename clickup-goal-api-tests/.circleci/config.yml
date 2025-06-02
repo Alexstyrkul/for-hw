@@ -1,0 +1,26 @@
+version: 2.1
+
+executors:
+  python-executor:
+    docker:
+      - image: python:3.9
+
+jobs:
+  test-python:
+    executor: python-executor
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: |
+            python -m pip install --upgrade pip
+            pip install -r requirements.txt
+      - run:
+          name: Run pytest
+          command: pytest python_tests/test_goals.py -v
+
+workflows:
+  version: 2
+  run-tests:
+    jobs:
+      - test-python
