@@ -18,10 +18,12 @@ jobs:
       - run:
           name: Install Python dependencies
           command: |
+            cd clickup-goal-api-tests-python
             pip install -r requirements.txt
       - run:
           name: Run pytest
           command: |
+            cd clickup-goal-api-tests-python
             pytest
 
   test-cypress:
@@ -32,10 +34,12 @@ jobs:
       - run:
           name: Install Cypress dependencies
           command: |
+            cd clickup-goal-api-tests
             npm ci
       - run:
           name: Run Cypress tests
           command: |
+            cd clickup-goal-api-tests
             npx cypress run
 
   test-postman:
@@ -46,10 +50,10 @@ jobs:
       - checkout
       - run:
           name: Run Postman collection
-          command: >
-            newman run "HW 4.postman_collection.json"
-            -e "Env hw 4.postman_environment.json"
-            --insecure
+          command: |
+            newman run "HW 4.postman_collection.json" \
+              -e "Env hw 4.postman_environment.json" \
+              --insecure
 
 workflows:
   version: 2
