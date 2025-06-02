@@ -10,20 +10,17 @@ jobs:
     executor: node-executor
     working_directory: ~/project
     environment:
-      CLICKUP_TOKEN: pk_200540127_JVDGGDGR64FUSZZJDAI0UV1C2WJ9GETA
-      LIST_ID: 901511749764
-      WORKSPACE_ID: 90151244709
-      GOAL_FOLDER_ID: 90157352427
+      CYPRESS_clickUpToken: pk_200540127_JVDGGDGR64FUSZZJDAI0UV1C2WJ9GETA
+      CYPRESS_workspaceId: 90151244709
+      CYPRESS_goalFolderId: 90157352427
+      CYPRESS_listId: 901511749764
+      CYPRESS_baseUrl: https://api.clickup.com/api/v2
     steps:
       - checkout:
           path: ~/project
-      - run:
-          name: Install dependencies
-          command: npm ci
-      - run:
-          name: Run Cypress tests
-          command: npx cypress run --e2e
-
+      - run: npm ci
+      - run: npx cypress run --e2e
+          
 workflows:
   version: 2
   run-cypress:
