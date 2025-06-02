@@ -6,12 +6,12 @@ describe('ClickUp Goal lifecycle — full test', () => {
     'Content-Type': 'application/json'
   };
 
-  const teamId = Cypress.env('workspaceId');
+  const workspaceId = Cypress.env('workspaceId');
 
   it('should create, get, update and delete a goal', () => {
     cy.request({
       method: 'POST',
-      url: `/team/${teamId}/goal`,
+      url: `/team/${workspaceId}/goal`,
       headers,
       body: {
         name: 'Goal from Cypress',
