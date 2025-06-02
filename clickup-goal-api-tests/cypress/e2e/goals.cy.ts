@@ -2,14 +2,13 @@ describe('ClickUp Goal lifecycle — full test', () => {
   let goalId: string;
 
   const headers = {
-    Authorization: Cypress.env('token'),
+    Authorization: Cypress.env('clickUpToken'),
     'Content-Type': 'application/json'
   };
 
-  const teamId = Cypress.env('teamId');
+  const teamId = Cypress.env('workspaceId');
 
   it('should create, get, update and delete a goal', () => {
-    // 1. CREATE
     cy.request({
       method: 'POST',
       url: `/team/${teamId}/goal`,
@@ -25,7 +24,6 @@ describe('ClickUp Goal lifecycle — full test', () => {
       expect(res.status).to.eq(200);
       goalId = res.body.goal.id;
 
-      // 2. GET BY ID
       cy.request({
         method: 'GET',
         url: `/goal/${goalId}`,
@@ -33,19 +31,17 @@ describe('ClickUp Goal lifecycle — full test', () => {
       }).then((getRes) => {
         expect(getRes.status).to.eq(200);
 
-        // 3. UPDATE
         cy.request({
           method: 'PUT',
           url: `/goal/${goalId}`,
           headers,
           body: {
             name: 'Updated Goal Name',
-            description: 'Updated description',
+            description: 'Updated description'
           }
         }).then((updateRes) => {
           expect(updateRes.status).to.eq(200);
 
-          // 4. DELETE
           cy.request({
             method: 'DELETE',
             url: `/goal/${goalId}`,
@@ -59,7 +55,6 @@ describe('ClickUp Goal lifecycle — full test', () => {
   });
 
   it('Negative test: GET Goal without token — should return 401', () => {
-    // GET без авторизації
     cy.request({
       method: 'GET',
       url: `/goal/nonexistentid123`,
@@ -69,3 +64,4 @@ describe('ClickUp Goal lifecycle — full test', () => {
     });
   });
 });
+
