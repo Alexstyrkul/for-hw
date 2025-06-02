@@ -1,0 +1,59 @@
+version: 2.1
+
+executors:
+  python-executor:
+    docker:
+      - image: python:3.9
+
+  node-executor:
+    docker:
+      - image: cimg/node:20.5.1
+
+jobs:
+  test-python:
+    executor: python-executor
+    working_directory: ~/repo/hw_9_python
+    steps:
+      - checkout
+      - run:
+          name: Install Python dependencies
+          command: |
+            pip install -r requirements.txt
+      - run:
+          name: Run pytest
+          command: pytest
+
+  test-cypress:
+    executor: node-executor
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run:
+          name: Install Cypress dependencies
+          command: |
+            npm ci
+      - run:
+          name: Run Cypress tests
+          command: npx cypress run
+
+  test-postman:
+    docker:
+      - image: postman/newman:alpine
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run:
+          name: Run Postman collection
+          command: >
+            newman run "HW 4.postman_collection.json"
+            -e "Env hw 4.postman_environment.json"
+            --insecure
+
+workflows:
+  version: 2
+  test-all:
+    jobs:
+      - test-python
+      - test-cypress
+      - test-postman
+
