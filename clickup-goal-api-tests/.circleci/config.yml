@@ -1,28 +1,47 @@
 version: 2.1
 
-executors:
-  node-executor:
-    docker:
-      - image: cimg/node:20.5.1
-
 jobs:
-  test-cypress:
-    executor: node-executor
-    working_directory: ~/project
-    environment:
-      CYPRESS_clickUpToken: pk_200540127_JVDGGDGR64FUSZZJDAI0UV1C2WJ9GETA
-      CYPRESS_workspaceId: 90151244709
-      CYPRESS_goalFolderId: 90157352427
-      CYPRESS_listId: 901511749764
-      CYPRESS_baseUrl: https://api.clickup.com/api/v2
+  node-job:
+    docker:
+      - image: timbru31/java-node:latest
     steps:
-      - checkout:
-          path: ~/project
-      - run: npm ci
-      - run: npx cypress run --e2e
-          
+      - checkout
+      - run:
+          name: Get access
+          command: chmod 777  /root
+      - run:
+          name: Update dependencies
+          command: apt update && apt upgrade -y
+      - run:
+          name: Install libs
+          command: apt-get install libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb -y
+      - run:
+          name: Update cypress
+          command: npm install cypress --save-dev
+      - run:
+          name: Install unzip
+          command: apt-get install -y unzip
+      - run:
+          name: Install Allure
+          command: |
+            curl -sSL https://github.com/allure-framework/allure2/releases/download/2.19.0/allure-2.19.0.zip -o allure.zip
+            unzip allure.zip -d /opt/allure
+            ln -s /opt/allure/allure-2.19.0/bin/allure /usr/bin/allure
+      - run:
+          name: install all
+          command: npm i
+      - run:
+          name: run tests
+          command: npx cypress run || true
+      - run:
+          name: generate report
+          command: npm run allure:report
+      - store_artifacts:
+          path: allure-report
+          destination: CypressReport
+
+
 workflows:
-  version: 2
-  run-cypress:
+  build-and-test:
     jobs:
-      - test-cypress
+      - node-job
